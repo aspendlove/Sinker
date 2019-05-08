@@ -1,0 +1,62 @@
+#pull in variables from aliases.sh
+source ~/.config/musicsync/aliases.sh
+#check the variable SOURCE against your aliases and if it matches then change it to the actual Source
+if [ "${SOURCE}" = "$name1" ]
+then
+	echo 'found alias'
+    realSOURCE="$directory1"
+elif [ "${SOURCE}" = "$name2" ]
+then
+	echo 'found alias'
+    realSOURCE="$directory2"
+elif [ "${SOURCE}" = "$name3" ]
+then
+	echo 'found alias'
+    realSOURCE="$directory3"
+elif [ "${SOURCE}" = "$name4}" ]
+then
+	echo 'found alias'
+    realSOURCE="$directory4"
+elif [ "${SOURCE}" = "${name5}" ]
+then
+	echo 'found alias'
+    realSOURCE="$directory5"
+else
+	echo 'no alias found'
+    realSOURCE="$SOURCE"
+fi
+
+
+
+
+
+
+#pull in variables from aliases.sh
+source ~/.config/musicsync/aliases.sh
+#check the variable DEST against your aliases and if it matches then change it to the actual directory
+if [ "${DEST}" = "$name1" ]
+then
+	echo 'found alias'
+    realDEST="$directory1"
+elif [ "${DEST}" = "$name2" ]
+then
+	echo 'found alias'
+    realDEST="$directory2"
+elif [ "${DEST}" = "$name3" ]
+then
+	echo 'found alias'
+    realDEST="$directory3"
+elif [ "${DEST}" = "$name4}" ]
+then
+	echo 'found alias'
+    realDEST="$directory4"
+elif [ "${DEST}" = "${name5}" ]
+then
+	echo 'found alias'
+    realDEST="$directory5"
+else
+	echo 'no alias found'
+    realDEST="$DEST"
+fi
+
+

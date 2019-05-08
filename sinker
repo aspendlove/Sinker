@@ -1,0 +1,139 @@
+#!/bin/bash
+#define the alias function
+check_aliases()
+{
+  DIR=$1
+  #pull variables from aliases.sh
+  source ~/.config/Sinker/aliases.sh
+  #if the directory passed in the first variable matches a stored value, then set realDIR to the stored actual directory
+  if [ "${DIR}" = "$name1" ]
+  then
+  	echo 'found alias'
+      realDIR=$directory1
+  elif [ ${DIR} = $name2 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory2
+  elif [ ${DIR} = $name3 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory3
+  elif [ ${DIR} = $name4 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory4
+  elif [ ${DIR} = $name5 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory5
+  elif [ ${DIR} = $name6 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory6
+  elif [ ${DIR} = $name7 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory7
+  elif [ ${DIR} = $name8 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory8
+  elif [ ${DIR} = $name9 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory9
+  elif [ ${DIR} = $name10 ]
+  then
+  	echo 'found alias'
+      realDIR=$directory10
+  else
+  	echo 'no alias found'
+      realDIR=$DIR
+  fi
+}
+#check if the argument -a is passed
+if [ "$1" = '-a' ]
+then
+	#check the number of lines in aliases.sh
+    cd ~/.config/Sinker/
+    lines=$(wc -l aliases.sh)
+    lines=${lines/aliases.sh/}
+	#if lines are greater than 1 then set number of aliases based on the number of lines
+	#REVIEW THIS LINE, IT CONTAINS UNNECESARY CODE
+    if [ $lines -gt 1 ]
+    then
+        numberofaliases=$(( 1 + ( $lines - 10 ) / 2 ))
+    else
+        numberofaliases=0
+    fi
+	#get the alias name
+    read -p 'What do you want this alias to be named? (no spaces)> ' name
+	#get where it actually points
+    read -p 'Where do you want it to point? use the same syntax as if you were passing cd then this text from the home directory-> ' adirectory
+	#append the name to aliases.sh (with the alias number from "numberofaliases")
+    echo 'name'"$numberofaliases"'='"'""$name""'" >> aliases.sh
+	#append the actual directory to aliases.sh (with the alias number from "numberofaliases")
+    echo 'directory'"$numberofaliases"'='"'""$adirectory""'" >> aliases.sh
+	exit
+#check if the argument -al is passed
+elif [ "$1" = '-al' ]
+then
+	#open aliases.sh in nano to allow the user to view and edit their aliases
+    echo "Your aliases are listed after all of the things being listed as nothing"
+    echo "Ctrl x to exit nano (the text editor)"
+    sleep 5
+    nano ~/.config/Sinker/aliases.sh
+	exit
+fi
+cd ~
+#ask for the source folder and save it in SOURCE
+echo 'What folder do you want to be the source? (paths are read relative to the home directory)'
+echo 'If you have a project setup then input that here as well'
+read -p '> ' SOURCE
+#run the check aliases function with the SOURCE variable as the directory to check against
+check_aliases SOURCE
+#set the output to the real source
+realDIR=realSOURCE
+echo 'What folder do you want to sync with the source directory? (paths are read relative to the home directory)'
+read -p '> ' DEST
+#run the check aliases function with the DEST variable as the directory to check against
+check_aliases DEST
+#set the output to the real source
+realDIR=realDEST
+echo 'Do you want to delete files from the destination directory that are not in the source directory? (y or n)'
+read -p '> ' DELETE
+if [ $DELETE != 'y' ] || [ $DELETE != 'n' ]
+then
+  echo 'Error, please respond with y or n only'
+  exit
+fi
+echo 'To sync files from the source $realSOURCE to the destination $realDEST with delete set to $DELETE'
+echo 'Is this correct? (y or n)'
+echo '> ' CORRECT
+if [ $CORRECT != 'y' ] || [ $CORRECT != 'n' ]
+then
+  echo 'Error, please respond with y or n only'
+  exit
+fi
+if [ "$CORRECT" = 'y' ]
+then
+  if [ "$DELETE" = 'y' ]
+  then
+    clear
+    echo 'executing rsync'
+    sleep 2
+    clear
+    sudo rsync -ah --delete --progress --info=progress2 $realSOURCE $realDEST
+  else
+    clear
+    echo 'executing rsync'
+    sleep 2
+    clear
+    sudo rsync -ah --progress --info=progress2 $realSOURCE $realDEST
+  fi
+else
+  echo 'Alright, no changes will be made. Exiting'
+  exit
+fi
+clear
+echo "All changes made, have a nice day! :)"
