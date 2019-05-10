@@ -58,28 +58,22 @@ then
     cd ~/.config/Sinker/
     lines=$(wc -l aliases.sh)
     lines=${lines/aliases.sh/}
-	#if lines are greater than 1 then set number of aliases based on the number of lines
-	#REVIEW THIS LINE, IT CONTAINS UNNECESARY CODE
-    if [ $lines -gt 1 ]
-    then
-        numberofaliases=$(( 1 + ( $lines - 10 ) / 2 ))
-    else
-        numberofaliases=0
-    fi
+    nextalias=$(( ($lines - 1) / 2 ))
+    nextalias=$(( $nextalias + 1))
 	#get the alias name
     read -p 'What do you want this alias to be named? (no spaces)> ' name
 	#get where it actually points
     read -p 'Where do you want it to point? use the same syntax as if you were passing cd then this text from the home directory-> ' adirectory
-	#append the name to aliases.sh (with the alias number from "numberofaliases")
-    echo 'name'"$numberofaliases"'='"'"$name"'" >> aliases.sh
-	#append the actual directory to aliases.sh (with the alias number from "numberofaliases")
-    echo 'directory'"$numberofaliases"'='"'""$adirectory""'" >> aliases.sh
+	#append the name to aliases.sh (with the alias number from "nextalias")
+    echo 'name'"$nextalias"'='"'"$name"'" >> aliases.sh
+	#append the actual directory to aliases.sh (with the alias number from "nextalias")
+    echo 'directory'"$nextalias"'='"'""$adirectory""'" >> aliases.sh
 	exit
 #check if the argument -al is passed
 elif [ "$1" = '-al' ]
 then
 	#open aliases.sh in nano to allow the user to view and edit their aliases
-    echo "Your aliases are listed after all of the things being listed as nothing"
+    echo "Your aliases are listed here"
     echo "Ctrl x to exit nano (the text editor)"
     sleep 5
     nano ~/.config/Sinker/aliases.sh
