@@ -117,6 +117,7 @@ then
   echo "$CORRECT"
   exit
 fi
+source ~/.config/Sinker/rsync_commands.sh
 if [ $CORRECT = 'y' ]
 then
   if [ $DELETE = 'y' ]
@@ -124,12 +125,12 @@ then
     clear
     echo 'executing rsync'
     echo ''
-    sudo rsync -ah --delete --progress --info=progress2 "$realSOURCE" "$realDEST"
+    rsyncDELETE $realSOURCE $realDEST
   else
     clear
     echo 'executing rsync'
     echo ''
-    sudo rsync -ah --progress --info=progress2 "$realSOURCE" "$realDEST"
+    rsyncNODELETE $realSOURCE $realDEST
   fi
 else
   echo 'Alright, no changes will be made. Exiting'

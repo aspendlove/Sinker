@@ -14,7 +14,7 @@ then
 fi
 echo 'Installing Sinker'
 #give all executables executable permissions
-sudo chmod +x sinker aliases.sh
+sudo chmod +x sinker aliases.sh uninstall.sh rsync_commands.sh
 #copy executables to /usr/local/bin
 sudo cp sinker /usr/local/bin
 if [ ! -d "~/.config/Sinker/" ]
@@ -23,6 +23,7 @@ then
 mkdir ~/.config/Sinker/
 fi
 cp aliases.sh ~/.config/Sinker/
+cp rsync_commands.sh ~/.config/Sinker/
 echo '
 '
 #check if the restart flag is set
