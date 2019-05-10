@@ -94,25 +94,31 @@ read -p '> ' SOURCE
 check_aliases $SOURCE
 #set the output to the real source
 realSOURCE=$realDIR
+echo ''
 echo 'What folder do you want to sync with the source directory? (paths are read relative to the home directory and must end in a "/" )'
 read -p '> ' DEST
 #run the check aliases function with the DEST variable as the directory to check against
 check_aliases $DEST
 #set the output to the real source
 realDEST=$realDIR
+echo ''
 echo 'Do you want to delete files from the destination directory that are not in the source directory? (y or n)'
 read -p '> ' DELETE
 if [ "$DELETE" != 'y' ] && [ "$DELETE" != 'n' ]
 then
+  echo ''
   echo 'Error, please respond with y or n only'
   echo "$DELETE"
   exit
 fi
+echo ''
+echo ''
 echo "To sync files from the source "$realSOURCE" to the destination "$realDEST" with delete set to "$DELETE""
 echo 'Is this correct? (y or n)'
 read -p '> ' CORRECT
 if [ "$CORRECT" != 'y' ] && [ "$CORRECT" != 'n' ]
 then
+  echo ''
   echo 'Error, please respond with y or n only'
   echo "$CORRECT"
   exit
