@@ -124,12 +124,11 @@ then
     clear
     echo 'executing rsync'
     echo ''
-    echo "sudo rsync -ah --delete --progress --info=progress2 "$realSOURCE" "$realDEST""
     sudo rsync -ah --delete --progress --info=progress2 "$realSOURCE" "$realDEST"
   else
+    clear
     echo 'executing rsync'
     echo ''
-    echo "sudo rsync -ah --progress --info=progress2 "$realSOURCE" "$realDEST""
     sudo rsync -ah --progress --info=progress2 "$realSOURCE" "$realDEST"
   fi
 else
