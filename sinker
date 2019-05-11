@@ -5,7 +5,7 @@ checkproject=0
 check_projects()
 {
   Project=$1
-  #pull variables from aliases.sh
+  #pull variables from projects.sh
   source ~/.config/Sinker/projects.sh
   #if the source passed in the first variable matches a stored value, then set SOURCE to the stored actual source
   if [ "$Project" = "$proname1" ]
