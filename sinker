@@ -1,108 +1,248 @@
 #!/bin/bash
-#define the alias function
+#set the checkproject flag to the default 0
+checkproject=0
+#define the check project function
+check_projects()
+{
+  Project=$1
+  #pull variables from aliases.sh
+  source ~/.config/Sinker/projects.sh
+  #if the source passed in the first variable matches a stored value, then set SOURCE to the stored actual source
+  if [ "$Project" = "$proname1" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source1
+    realDEST=$destination1
+    DELETE=$prodelete1
+    checkproject=1
+  elif [ "$Project" = "$proname2" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source2
+    realDEST=$destination2
+    DELETE=$prodelete2
+    checkproject=1
+  elif [ "$Project" = "$proname3" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source3
+    realDEST=$destination3
+    DELETE=$prodelete3
+    checkproject=1
+  elif [ "$Project" = "$proname4" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source4
+    realDEST=$destination4
+    DELETE=$prodelete4
+    checkproject=1
+  elif [ "$Project" = "$proname5" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source5
+    realDEST=$destination5
+    DELETE=$prodelete5
+    checkproject=1
+  elif [ "$Project" = "$proname6" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source6
+    realDEST=$destination6
+    DELETE=$prodelete6
+    checkproject=1
+  elif [ "$Project" = "$proname7" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source7
+    realDEST=$destination7
+    DELETE=$prodelete7
+    checkproject=1
+  elif [ "$Project" = "$proname8" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source8
+    realDEST=$destination8
+    DELETE=$prodelete8
+    checkproject=1
+  elif [ "$Project" = "$proname9" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source9
+    realDEST=$destination9
+    DELETE=$prodelete9
+    checkproject=1
+  elif [ "$Project" = "$proname10" ]
+  then
+  	echo 'found project'
+    realSOURCE=$source10
+    realDEST=$destination10
+    DELETE=$prodelete10
+    checkproject=1
+  else
+    echo 'no project found'
+  fi
+}
+#decine the check aliases function
 check_aliases()
 {
   DIR=$1
   #pull variables from aliases.sh
   source ~/.config/Sinker/aliases.sh
   #if the directory passed in the first variable matches a stored value, then set realDIR to the stored actual directory
-  if [ "$DIR" = $name1 ]
+  if [ "$DIR" = "$name1" ]
   then
   	echo 'found alias'
-      realDIR=$directory1
-  elif [ "$DIR" = $name2 ]
+    realDIR=$directory1
+  elif [ "$DIR" = "$name2" ]
   then
   	echo 'found alias'
-      realDIR=$directory2
-  elif [ "$DIR" = $name3 ]
+    realDIR=$directory2
+  elif [ "$DIR" = "$name3" ]
   then
   	echo 'found alias'
-      realDIR=$directory3
-  elif [ "$DIR" = $name4 ]
+    realDIR=$directory3
+  elif [ "$DIR" = "$name4" ]
   then
   	echo 'found alias'
-      realDIR=$directory4
-  elif [ "$DIR" = $name5 ]
+    realDIR=$directory4
+  elif [ "$DIR" = "$name5" ]
   then
   	echo 'found alias'
-      realDIR=$directory5
-  elif [ "$DIR" = $name6 ]
+    realDIR=$directory5
+  elif [ "$DIR" = "$name6" ]
   then
   	echo 'found alias'
-      realDIR=$directory6
-  elif [ "$DIR" = $name7 ]
+    realDIR=$directory6
+  elif [ "$DIR" = "$name7" ]
   then
   	echo 'found alias'
-      realDIR=$directory7
-  elif [ "$DIR" = $name8 ]
+    realDIR=$directory7
+  elif [ "$DIR" = "$name8" ]
   then
   	echo 'found alias'
-      realDIR=$directory8
-  elif [ "$DIR" = $name9 ]
+    realDIR=$directory8
+  elif [ "$DIR" = "$name9" ]
   then
   	echo 'found alias'
-      realDIR=$directory9
-  elif [ "$DIR" = $name10 ]
+    realDIR=$directory9
+  elif [ "$DIR" = "$name10" ]
   then
   	echo 'found alias'
-      realDIR=$directory10
+    realDIR=$directory10
   else
   	echo 'no alias found'
-      realDIR=$DIR
+    realDIR=$DIR
   fi
 }
 #check if the argument -a is passed
 if [ "$1" = '-a' ]
 then
-	#check the number of lines in aliases.sh
-    cd ~/.config/Sinker/
-    lines=$(wc -l aliases.sh)
-    lines=${lines/aliases.sh/}
-    nextalias=$(( ($lines - 1) / 2 ))
-    nextalias=$(( $nextalias + 1))
-	#get the alias name
-    read -p 'What do you want this alias to be named? (no spaces)> ' name
-	#get where it actually points
-    read -p 'Where do you want it to point? use the same syntax as if you were passing cd then this text from the home directory-> ' adirectory
-	#append the name to aliases.sh (with the alias number from "nextalias")
-    echo 'name'"$nextalias"'='"'"$name"'" >> aliases.sh
-	#append the actual directory to aliases.sh (with the alias number from "nextalias")
-    echo 'directory'"$nextalias"'='"'""$adirectory""'" >> aliases.sh
-	exit
-#check if the argument -al is passed
+  #check the number of lines in aliases.sh
+  cd ~/.config/Sinker/
+  lines=$(wc -l aliases.sh)
+  lines=${lines/aliases.sh/}
+  nextalias=$(( ($lines - 1) / 2 ))
+  nextalias=$(( $nextalias + 1))
+  #get the alias name
+  read -p 'What do you want this alias to be named? (no spaces)> ' name
+  #get where it actually points
+  echo ''
+  echo "Where do you want it to point? use the same syntax as if you were running cd then this from the home directory"
+  echo "Make sure to end the directory with a /"
+  read -p '> ' adirectory
+  #append the name to aliases.sh (with the alias number from "nextalias")
+  echo 'name'"$nextalias"'='"'"$name"'" >> aliases.sh
+  #append the actual directory to aliases.sh (with the alias number from "nextalias")
+  echo 'directory'"$nextalias"'='"'""$adirectory""'" >> aliases.sh
+exit
+  #check if the argument -al is passed
 elif [ "$1" = '-al' ]
 then
+  #open aliases.sh in nano to allow the user to view and edit their aliases
+  echo "Your aliases are listed here"
+  echo "Ctrl x to exit nano (the text editor)"
+  sleep 5
+  nano ~/.config/Sinker/aliases.sh
+	exit
+fi
+cd ~
+if [ "$1" = '-p' ]
+then
+	#check the number of lines in aliases.sh
+  cd ~/.config/Sinker/
+  lines=$(wc -l projects.sh)
+  lines=${lines/projects.sh/}
+  nextproject=$(( ($lines - 1) / 4 ))
+  nextproject=$(( $nextproject + 1))
+	#get the alias name
+  read -p 'What do you want this project to be named? (no spaces)> ' proname
+  echo ''
+	#get the source for this project
+  echo "What do you want the source to be? use the same syntax as if you were running cd then this from the home directory"
+  echo "Make sure to end the directory with a /"
+  read -p '> ' asource
+  echo ''
+  #get the destination for this project
+  echo "What do you want the destination to be? use the same syntax as if you were running cd then this from the home directory"
+  echo "Make sure to end the directory with a /"
+  read -p '> ' adestination
+  echo ''
+  read -p 'Do you want to delete files from the destination directory that are not in the source directory? (y or n)> ' prodelete
+	#append the name to projects.sh (with the projec number from "nextproject")
+  echo 'proname'"$nextproject"'='"'"$proname"'" >> projects.sh
+	#append the source to projects.sh (with the project number from "nextproject")
+  echo 'source'"$nextproject"'='"'""$asource""'" >> projects.sh
+  #append the destination to projects.sh (with the project number from "nextproject")
+  echo 'destination'"$nextproject"'='"'""$adestination""'" >> projects.sh
+  #append the delete flag to projects.sh (with the project number from "nextproject")
+  echo 'prodelete'"$nextproject"'='"'""$prodelete""'" >> projects.sh
+	exit
+#check if the argument -al is passed
+elif [ "$1" = '-pl' ]
+then
 	#open aliases.sh in nano to allow the user to view and edit their aliases
-    echo "Your aliases are listed here"
+    echo "Your projects are listed here"
     echo "Ctrl x to exit nano (the text editor)"
     sleep 5
-    nano ~/.config/Sinker/aliases.sh
+    nano ~/.config/Sinker/projects.sh
 	exit
+fi
+if [ "$1" = '-r' ]
+then
+  echo "you can change the rsync commands here"
+  echo "press control x to exit nano (the text editor)"
+  sleep 5
+  nano ~/.config/Sinker/rsync_commands.sh
+  exit
 fi
 cd ~
 #ask for the source folder and save it in SOURCE
 echo 'What folder do you want to be the source? (paths are read relative to the home directory and must end in a "/" )'
 echo 'If you have a project setup then input that here as well'
 read -p '> ' SOURCE
+check_projects $SOURCE
 #run the check aliases function with the SOURCE variable as the directory to check against
-check_aliases $SOURCE
-#set the output to the real source
-realSOURCE=$realDIR
-echo ''
-echo 'What folder do you want to sync with the source directory? (paths are read relative to the home directory and must end in a "/" )'
-read -p '> ' DEST
-#run the check aliases function with the DEST variable as the directory to check against
-check_aliases $DEST
-#set the output to the real source
-realDEST=$realDIR
-echo ''
-echo 'Do you want to delete files from the destination directory that are not in the source directory? (y or n)'
-read -p '> ' DELETE
+if [ $checkproject = 0 ]
+then
+  check_aliases $SOURCE
+  #set the output to the real source
+  realSOURCE=$realDIR
+  echo ''
+  echo 'What folder do you want to sync with the source directory? (paths are read relative to the home directory and must end in a "/" )'
+  read -p '> ' DEST
+  #run the check aliases function with the DEST variable as the directory to check against
+  check_aliases $DEST
+  #set the output to the real source
+  realDEST=$realDIR
+  echo ''
+  echo 'Do you want to delete files from the destination directory that are not in the source directory? (y or n)'
+  read -p '> ' DELETE
+fi
 if [ "$DELETE" != 'y' ] && [ "$DELETE" != 'n' ]
 then
   echo ''
   echo 'Error, please respond with y or n only'
-  echo "$DELETE"
+  echo "you answered with "'"'"$DELETE"'"'
   exit
 fi
 echo ''
@@ -114,7 +254,7 @@ if [ "$CORRECT" != 'y' ] && [ "$CORRECT" != 'n' ]
 then
   echo ''
   echo 'Error, please respond with y or n only'
-  echo "$CORRECT"
+  echo "you answered with "'"'"$CORRECT"'"'
   exit
 fi
 source ~/.config/Sinker/rsync_commands.sh
