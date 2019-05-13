@@ -7,15 +7,29 @@
 
 **To install run these commands in a terminal (you will need the program git installed beforehand)**
 
-cd Downloads
+    cd Downloads
 
-git clone https://github.com/copperly123/Sinker.git
+    git clone https://github.com/copperly123/Sinker.git
 
-cd Sinker
+    cd Sinker
 
-./install.sh
+    ./install.sh
 
-**Then put in your password and read the instructions on screen, you may have to restart before the program is fully installed. (it will tell you if you need to restart)
+**You can also install it without git, but it includes more steps.**
+
+First click the button on this repository that says "clone or download" and then click download zip. Then download it in your downloads folder and run these commands in the terminal.
+
+    cd Downloads
+
+    unzip Sinker-master.zip
+
+    cd Sinker-master
+
+    ./install.sh
+
+**After you do either of these methods, your terminal will be running the install script. It will ask you if you want to install rsync, which is needed to run the program, if you're unsure then choose yes. After that it will ask you which package manager you use, which is the program that is used to install software. It lists the names as well as the distributions that use each one. After that it will install sinker and you may have to reboot (if you do it will tell you)**
+
+**Be sure to read all the messages in the install script, they contain important information**
 
 **After it is fully installed you can delete the Sinker folder in Downloads.**
 
