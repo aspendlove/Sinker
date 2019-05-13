@@ -12,6 +12,46 @@ then
 	#and set the reset flag
 	restart=1
 fi
+echo "Do you want to isntall the dependency Rsync? (you will need this to use the program)"
+read -p 'yes or no> ' yorn
+if [ "${yorn}" = 'yes' ]
+then
+  echo '
+  '
+	echo "What package manager does your system use?"
+	echo "1. apt (ubuntu/debian based)"
+	echo "2. dnf (fedora based)"
+	echo "3. eopkg (solus)"
+	echo "4. other"
+	read -p '1, 2, 3, or 4> ' pkgmgr
+  echo '
+  '
+	if [ $pkgmgr = 1 ]
+	then
+		echo 'installing rsync using apt'
+		sudo apt install rsync
+	elif [ $pkgmgr = 2 ]
+	then
+		echo 'installing rsync using dnf'
+		sudo dnf install rsync
+	elif [ $pkgmgr = 3 ]
+	then
+		echo 'installing rsync using eopkg'
+		sudo eopkg install rsync
+	elif [ $pkgmgr = 4 ]
+	then
+		echo "you will need to install rsync yourself after this program is installed"
+	else
+		echo "please answer with 1, 2, 3, or 4 only"
+		echo "you answered with" "$pkgmgr"
+	fi
+else
+  echo '
+  '
+  echo 'alright'
+fi
+echo
+echo
 echo 'Installing Sinker'
 #give all executables executable permissions
 sudo chmod a+x sinker aliases.sh uninstall.sh rsync_commands.sh projects.sh
@@ -34,13 +74,13 @@ echo '
 if [ $restart != 1 ]
 then
 	#if not then tell the user that the program is installed
-	echo "fully installed, you can delete this folder if you want"
-	echo "the uninstall script is located in ~/.config/Sinker/ and is named unisntall.sh"
-	echo "for more information go to https://github.com/copperly123/Sinker and reference the section on uninstalling"
+	echo "Fully installed, you can delete this folder if you want"
+	echo "The uninstall script is located in ~/.config/Sinker/ and is named unisntall.sh"
+	echo "For more information go to https://github.com/copperly123/Sinker and reference the section in the documentation on uninstalling"
 else
 	#if so then tell the user that they will need to restart
-	echo "you will need to reboot to fully install, after that you can delete this folder if you want"
-	echo "the uninstall script is located in ~/.config/Sinker/ and is named unisntall.sh"
-	echo "for more information go to https://github.com/copperly123/Sinker and reference the section on uninstalling"
+	echo "You will need to reboot to fully install, after that you can delete this folder if you want"
+	echo "The uninstall script is located in ~/.config/Sinker/ and is named unisntall.sh"
+	echo "For more information go to https://github.com/copperly123/Sinker and reference the section in the documentation on uninstalling"
 fi
 exit
