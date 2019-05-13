@@ -109,18 +109,28 @@ sinker -- the main program's code
 
 Stored in ~/.config/Sinker/
 
+
 aliases.sh -- a shell script where all the aliases are stored
+
 projects.sh -- a shell script where all the projects are stored
+
 rsync_commands.sh -- a shell script where you can edit the rsync commands
+
 uninstall.sh -- a shell script used to completely uninstall the program
 
 ---
 
 **All Commands**
 
+
 sinker -- runs the program
+
 sinker -a -- creates a new alias
+
 sinker -al -- lists and allows you to edit/delete all of your aliases
+
 sinker -p -- creates a new project
+
 sinker -pl -- lists and allow you to edit/delete all of your aliases
+
 sinker -r -- allows you to edit the rsync commands that are run
