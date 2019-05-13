@@ -31,7 +31,7 @@ First click the button on this repository that says "clone or download" and then
 
 **Be sure to read all the messages in the install script, they contain important information**
 
-**After it is fully installed you can delete the Sinker folder in Downloads.**
+**After it is fully installed you can delete the Sinker or Sinker-master folder (depending which way you downloaded it) in Downloads.**
 
 ---
 
