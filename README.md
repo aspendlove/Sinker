@@ -105,9 +105,14 @@ If you have any questions or issues about this program, feel free to open an iss
 
 Stored in /usr/local/bin/
 
+
+
 sinker -- the main program's code
 
+
+
 Stored in ~/.config/Sinker/
+
 
 
 aliases.sh -- a shell script where all the aliases are stored
