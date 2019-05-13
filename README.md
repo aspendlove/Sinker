@@ -38,9 +38,9 @@ First click the button on this repository that says "clone or download" and then
 # uninstallation
 **To uninstall run these commands in a terminal.**
 
-cd ~/.config/Sinker/
+    cd ~/.config/Sinker/
 
-./uninstall.sh
+    ./uninstall.sh
 
 ---
 
