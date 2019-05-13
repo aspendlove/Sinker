@@ -1,5 +1,5 @@
 # Sinker
-# Sinker is a wrapper for Rsync, and it's purpose is to simplify the process of syncing two folders together while preserving file attributes, and copying only what has changed. Instead of having to use complicated command arguments with Rsync, Sinker asks you questions and does the hard work for you. You can also setup projects that save your settings and folders so that redundant tasks can go really quickly.
+**Sinker is a wrapper for Rsync, and it's purpose is to simplify the process of syncing two folders together while preserving file attributes, and copying only what has changed. Instead of having to use complicated command arguments with Rsync, Sinker asks you questions and does the hard work for you. You can also setup projects that save your settings and folders so that redundant tasks can go really quickly.**
 
 
 ----
