@@ -3,32 +3,48 @@
 
 
 ----
+# Installation
 
 **To install run these commands in a terminal (you will need the program git installed beforehand)**
 
-cd Downloads
+    cd Downloads
 
-git clone https://github.com/copperly123/Sinker.git
+    git clone https://github.com/copperly123/Sinker.git
 
-cd Sinker
+    cd Sinker
 
-./install.sh
+    ./install.sh
 
-**Then put in your password and read the instructions on screen, you may have to restart before the program is fully installed. (it will tell you if you need to restart)**
+**You can also install it without git, but it includes more steps.**
 
-**After it is fully installed you can delete the Sinker folder in Downloads.**
+First click the button on this repository that says "clone or download" and then click download zip. Then download it in your downloads folder and run these commands in the terminal.
+
+    cd Downloads
+
+    unzip Sinker-master.zip
+
+    cd Sinker-master
+
+    ./install.sh
+
+**After you do either of these methods, your terminal will be running the install script. It will ask you if you want to install rsync, which is needed to run the program, if you're unsure then choose yes. After that it will ask you which package manager you use, which is the program that is used to install software. It lists the names as well as the distributions that use each one. After that it will install sinker and you may have to reboot (if you do it will tell you)**
+
+**Be sure to read all the messages in the install script, they contain important information**
+
+**After it is fully installed you can delete the Sinker or Sinker-master folder (depending which way you downloaded it) in Downloads.**
 
 ---
 
+# uninstallation
 **To uninstall run these commands in a terminal.**
 
-cd ~/.config/Sinker/
+    cd ~/.config/Sinker/
 
-./uninstall.sh
+    ./uninstall.sh
 
 ---
 
-**To use go into the terminal and type in "sinker" as shown below**
+# To use go into the terminal and type in "sinker" as shown below
 
 ![alt text](https://github.com/copperly123/Sinker/blob/master/Images/sinkercommand.png)
 
@@ -48,7 +64,7 @@ Finally it gives you a summary of what you're doing, and then asks you to confir
 
 ---
 
-**Aliases**
+# Aliases
 
 Aliases are a feature implemented into Sinker that allows you to set nicknames certain folders so that you don't have to type out the full path every time. You can have up to ten aliases. To set one up type "sinker -a" (-a stands for alias) into the terminal and a this screen will show up.
 
@@ -66,7 +82,7 @@ To use an alias, run sinker and type in the name of the alias in a place where y
 
 ---
 
-**Projects**
+# Projects
 
 Another feature of sinker is projects, which allow you to autofil the settings with predefined values. This allows you to skip everything except the confirmation.
 
@@ -87,7 +103,7 @@ To use a project, type in the project name on the first question when you run si
 
 ---
 
-**Changing the rsync commands**
+# Changing the rsync commands
 
 If for any reason you want to change the rsync commands that are run, then you can run sinker -r. A file will be opened with nano in the terminal (the file is located in ~/.config/Sinker/ and is named rsync_commands.sh). You can edit the commands highlighted below, ($1 will be replaced with the source directory, and $2 will be replaced with the destination directory)
 
@@ -95,32 +111,41 @@ If for any reason you want to change the rsync commands that are run, then you c
 
 ---
 
-**Issues with the program**
+# All Files used by the program
 
-If you have any questions or issues about this program, feel free to open an issue in the issues tab of this repository. I will try to respond as quickly as I can.
-
----
-
-**All Files**
-
-Stored in /usr/local/bin/
+**Stored in /usr/local/bin/**
 
 sinker -- the main program's code
 
-Stored in ~/.config/Sinker/
+**Stored in ~/.config/Sinker/**
 
 aliases.sh -- a shell script where all the aliases are stored
+
 projects.sh -- a shell script where all the projects are stored
+
 rsync_commands.sh -- a shell script where you can edit the rsync commands
+
 uninstall.sh -- a shell script used to completely uninstall the program
 
 ---
 
-**All Commands**
+# All Commands
+
 
 sinker -- runs the program
+
 sinker -a -- creates a new alias
+
 sinker -al -- lists and allows you to edit/delete all of your aliases
+
 sinker -p -- creates a new project
+
 sinker -pl -- lists and allow you to edit/delete all of your aliases
+
 sinker -r -- allows you to edit the rsync commands that are run
+
+----
+
+# Support
+
+If you have any questions or issues with this program, feel free to open an issue in the issues tab of this repository. I will try to respond as quickly as I can.
