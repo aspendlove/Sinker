@@ -111,12 +111,6 @@ If for any reason you want to change the rsync commands that are run, then you c
 
 ---
 
-# Issues with the program
-
-If you have any questions or issues about this program, feel free to open an issue in the issues tab of this repository. I will try to respond as quickly as I can.
-
----
-
 # All Files used by the program
 
 **Stored in /usr/local/bin/**
@@ -149,3 +143,9 @@ sinker -p -- creates a new project
 sinker -pl -- lists and allow you to edit/delete all of your aliases
 
 sinker -r -- allows you to edit the rsync commands that are run
+
+----
+
+# Support
+
+If you have any questions or issues with this program, feel free to open an issue in the issues tab of this repository. I will try to respond as quickly as I can.
