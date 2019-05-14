@@ -44,11 +44,12 @@ First click the button on this repository that says "clone or download" and then
 
 ---
 
-# To use go into the terminal and type in "sinker" as shown below
+# How to use
 
+**To use go into the terminal and type in "sinker" as shown below**
 ![alt text](https://github.com/copperly123/Sinker/blob/master/Images/sinkercommand.png)
 
-And it will ask you what you want your source directory to be. This is the folder that you want to sync another folder with. What you will need to do is type in the path to the folder relative to the home directory and then hit enteras. For example, if you want to sync another folder with Documents, then you would type in Documents/ It is important to note that you cannot have spaces in your folder names. if you wanted to sync a folder inside of documents called Projects, you would type Documents/Projects/ and so on. You can also find the path by navigating to the folder you want in your file browser, right click and choose "open in terminal" and you will see something like this.
+And it will ask you what you want your source directory to be. This is the folder that you want to sync another folder with. What you will need to do is type in the path to the folder relative to the home directory and then hit enter. For example, if you want to sync another folder with Documents, then you would type in Documents/ It is important to note that you cannot have spaces in your folder names. if you wanted to sync a folder inside of documents called Projects, you would type Documents/Projects/ and so on. You can also find the path by navigating to the folder you want in your file browser, right click and choose "open in terminal" and you will see something like this.
 
 ![alt text](https://github.com/copperly123/Sinker/blob/master/Images/folderproperties.png)
 
