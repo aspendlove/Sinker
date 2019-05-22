@@ -147,6 +147,12 @@ sinker -r -- allows you to edit the rsync commands that are run
 
 ----
 
+# Planned features
+
+-sync multiple folders (usable in both the main program and with projects)
+
+-----
+
 # Support
 
 If you have any questions or issues with this program, feel free to open an issue in the issues tab of this repository. I will try to respond as quickly as I can.
